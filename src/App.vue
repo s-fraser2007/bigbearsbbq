@@ -52,7 +52,7 @@
   </nav>
 
   <div class="flex justify-center">
-    <img alt="Logo" src="/img/logo.png" class="h-auto w-auto pb-10" style="max-height: 60dvw" />
+    <img alt="Logo" src="/img/logo.png" class="h-auto w-auto pb-10" style="max-height: 40dvw" />
   </div>
   <router-view />
 </template>
