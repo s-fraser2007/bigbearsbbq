@@ -51,7 +51,9 @@
     </div>
   </nav>
 
-  <img alt="Logo" src="/img/logo.png" class="main-logo pb-10" />
+  <div class="flex justify-center">
+    <img alt="Logo" src="/img/logo.png" class="h-auto w-auto pb-10" style="max-height: 60dvw" />
+  </div>
   <router-view />
 </template>
 
