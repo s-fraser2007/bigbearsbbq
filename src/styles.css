@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+#app {
+  font-family: 'Finger Paint', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+nav a {
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #cd214f;
+}
+
+.main-logo {
+  width: calc(100vw / 4);
+  margin: auto;
+}
