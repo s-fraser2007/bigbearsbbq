@@ -1,5 +1,5 @@
 <template>
-  <h1>BBQ</h1>
+  <BaseHeader>BBQ</BaseHeader>
   <p>
     We are available to book for a wide variety of weddings, parties, corporate or other events.
   </p>
@@ -13,7 +13,12 @@
 </template>
 
 <script>
+import BaseHeader from '@/components/Base/BaseHeader.vue'
+
 export default {
   name: 'BbqPage',
+  components: {
+    BaseHeader,
+  },
 }
 </script>

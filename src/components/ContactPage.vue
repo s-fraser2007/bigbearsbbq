@@ -1,6 +1,6 @@
 <template>
   <section class="max-w-4xl mx-auto px-4 py-10">
-    <h1 class="text-3xl font-bold mb-4 text-gray-800">Contact Us</h1>
+    <BaseHeader>Contact Us</BaseHeader>
     <p class="mb-2 text-gray-700">
       If you have any questions or enquiries, please do not hesitate to contact us. You can fill out
       the form below, or you can
@@ -145,8 +145,13 @@
 </template>
 
 <script>
+import BaseHeader from '@/components/Base/BaseHeader.vue'
+
 export default {
   name: 'ContactUs',
+  components: {
+    BaseHeader,
+  },
 }
 </script>
 

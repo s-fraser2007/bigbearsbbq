@@ -1,5 +1,5 @@
 <template>
-  <h1>About Us</h1>
+  <BaseHeader>About Us</BaseHeader>
   <p>
     We have been building our business since late 2019 in and around the Lancaster area, where we
     are based. we started out in our custom built wood fired pizza trailer, and soon found ourselves
@@ -20,7 +20,12 @@
 </template>
 
 <script>
+import BaseHeader from '@/components/Base/BaseHeader.vue'
+
 export default {
   name: 'AboutPage',
+  components: {
+    BaseHeader,
+  },
 }
 </script>
