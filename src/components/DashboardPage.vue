@@ -26,6 +26,9 @@
 
 <script>
 import BaseHeader from '@/components/Base/BaseHeader.vue'
+import { signOut } from 'firebase/auth'
+import { auth } from '../firebase'
+
 export default {
   name: 'LoginPage',
   components: {
@@ -43,10 +46,9 @@ export default {
         this.imageUrl = URL.createObjectURL(file)
       }
     },
-    logout() {
-      localStorage.removeItem('auth')
-      alert('You have been logged out')
-      this.$router.push('/')
+    async logout() {
+      await signOut(auth)
+      this.$router.replace('/')
     },
   },
 }

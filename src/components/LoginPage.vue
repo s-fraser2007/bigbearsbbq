@@ -38,6 +38,9 @@
 
 <script>
 import BaseHeader from '@/components/Base/BaseHeader.vue'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../firebase'
+
 export default {
   name: 'LoginPage',
   components: {
@@ -50,13 +53,12 @@ export default {
     }
   },
   methods: {
-    login() {
-      if (this.email === 'admin@example.com' && this.password === 'password') {
-        localStorage.setItem('auth', 'true')
+    async login() {
+      try {
+        await signInWithEmailAndPassword(auth, this.email, this.password)
         this.$router.push('/dashboard')
-      } else {
-        localStorage.removeItem('auth')
-        alert('Invalid credentials')
+      } catch (error) {
+        alert('Login failed: ' + error.message)
       }
     },
   },

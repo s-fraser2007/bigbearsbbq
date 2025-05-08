@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { auth } from '../firebase'
+import { onAuthStateChanged } from 'firebase/auth'
 
 // Views
 import HomeView from '@/views/HomeView.vue'
@@ -40,16 +42,34 @@ const router = createRouter({
     {
       path: '/dashboard',
       component: DashboardView,
+      meta: { requiresAuth: true },
     },
   ],
 })
 
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('auth') === 'true'
+// A function that returns a Promise based on auth state
+function getCurrentUser() {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (user) => {
+        unsubscribe() // prevent multiple triggers
+        resolve(user)
+      },
+      reject,
+    )
+  })
+}
 
-  if (to.path === '/dashboard' && !isAuthenticated) {
-    alert('You must be logged in to hit the dashboard!')
-    next('/')
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
+
+  if (requiresAuth) {
+    const user = await getCurrentUser()
+    if (!user) {
+      alert('You must be signed in to view the dashboard!')
+      next('/')
+    }
   }
 
   next()
