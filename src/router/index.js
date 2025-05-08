@@ -7,6 +7,7 @@ import WoodFiredPizzaView from '@/views/WoodFiredPizzaView.vue'
 import BbqView from '@/views/BbqView.vue'
 import ContactView from '@/views/ContactView.vue'
 import LoginView from '@/views/LoginView.vue'
+import DashboardView from '@/views/DashboardView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,7 @@ const router = createRouter({
     },
     {
       path: '/dashboard',
+      component: DashboardView,
     },
   ],
 })
