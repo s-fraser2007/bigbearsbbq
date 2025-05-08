@@ -18,6 +18,9 @@
     <div v-if="imageUrl" class="mt-2">
       <img :src="imageUrl" alt="Uploaded" class="max-w-full" />
     </div>
+    <div class="md:col-span-3 text-right">
+      <button @click="logout" class="big-bear-button px-6 py-2 rounded-md mt-4">Logout</button>
+    </div>
   </section>
 </template>
 
@@ -39,6 +42,11 @@ export default {
       if (file) {
         this.imageUrl = URL.createObjectURL(file)
       }
+    },
+    logout() {
+      localStorage.removeItem('auth')
+      alert('You have been logged out')
+      this.$router.push('/')
     },
   },
 }

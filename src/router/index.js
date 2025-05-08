@@ -44,4 +44,15 @@ const router = createRouter({
   ],
 })
 
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('auth') === 'true'
+
+  if (to.path === '/dashboard' && !isAuthenticated) {
+    alert('You must be logged in to hit the dashboard!')
+    next('/')
+  }
+
+  next()
+})
+
 export default router

@@ -52,8 +52,10 @@ export default {
   methods: {
     login() {
       if (this.email === 'admin@example.com' && this.password === 'password') {
+        localStorage.setItem('auth', 'true')
         this.$router.push('/dashboard')
       } else {
+        localStorage.removeItem('auth')
         alert('Invalid credentials')
       }
     },
