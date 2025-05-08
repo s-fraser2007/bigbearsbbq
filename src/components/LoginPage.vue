@@ -54,11 +54,32 @@ export default {
   },
   methods: {
     async login() {
+      // Check if locked out
+      const lockout = localStorage.getItem('lockoutUntil')
+      if (lockout && Date.now() < parseInt(lockout)) {
+        alert('Too many failed attempts. Try again later.')
+        return
+      }
+
       try {
         await signInWithEmailAndPassword(auth, this.email, this.password)
+        localStorage.removeItem('loginAttempts')
+        localStorage.removeItem('lockoutUntil')
         this.$router.push('/dashboard')
       } catch (error) {
-        alert('Login failed: ' + error.message)
+        console.log(error)
+
+        let attempts = parseInt(localStorage.getItem('loginAttempts')) || 0
+        attempts++
+        localStorage.setItem('loginAttempts', attempts)
+
+        if (attempts >= 5) {
+          const lockTime = Date.now() + 5 * 60 * 1000 // 5 minutes
+          localStorage.setItem('lockoutUntil', lockTime)
+          alert('Too many failed attempts. Locked for 5 minutes.')
+        } else {
+          alert(`Login failed. Attempts left: ${5 - attempts}`)
+        }
       }
     },
   },
