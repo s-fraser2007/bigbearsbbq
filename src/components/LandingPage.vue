@@ -9,14 +9,24 @@
 
     <!-- Welcome Text -->
     <BaseHeader>Hello, Welcome to Big Bears BBQ Pizza &amp; Grill </BaseHeader>
-    <router-link to="/menu">
-      <button
-        class="mt-6 px-6 py-3 bg-red-600 text-white text-lg font-bold rounded-2xl shadow-lg cursor-pointer hover:bg-red-700 transition duration-300"
-        router-link="menu"
-      >
-        View Our Menu
-      </button>
-    </router-link>
+    <div class="flex flex-center">
+      <router-link to="/menu" class="mx-2">
+        <button
+          class="mt-6 px-6 py-3 big-bear-button font-bold rounded-2xl shadow-lg"
+          router-link="menu"
+        >
+          View Our Menu
+        </button>
+      </router-link>
+      <router-link to="/contact" class="mx-2">
+        <button
+          class="mt-6 px-6 py-3 big-bear-button font-bold rounded-2xl shadow-lg"
+          router-link="contact"
+        >
+          Contact Us for Bookings
+        </button>
+      </router-link>
+    </div>
   </div>
 </template>
 

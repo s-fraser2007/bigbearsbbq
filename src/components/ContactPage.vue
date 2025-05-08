@@ -133,12 +133,7 @@
 
       <!-- Submit Button -->
       <div class="md:col-span-3 text-center">
-        <button
-          type="submit"
-          class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition font-semibold shadow"
-        >
-          Submit
-        </button>
+        <button type="submit" class="big-bear-button px-6 py-2 rounded-md">Submit</button>
       </div>
     </form>
   </section>

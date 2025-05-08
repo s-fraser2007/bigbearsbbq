@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+:root {
+  --big-bear-red: #cd214f;
+}
+
 #app {
   font-family: 'Finger Paint', cursive;
   -webkit-font-smoothing: antialiased;
@@ -14,13 +18,31 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #cd214f;
+  color: var(--big-bear-red);
 }
 
 p {
   max-width: 60dvw;
   margin: auto;
   padding-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--big-bear-red);
+}
+
+.big-bear-button {
+  background-color: var(--big-bear-red);
+  color: white;
+  cursor: pointer;
+}
+
+.big-bear-button:hover {
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
