@@ -22,6 +22,10 @@
           >
         </div>
 
+        <div class="hidden md:flex space-x-3 right-1/2 transform -translate-x-1/2">
+          <router-link to="/login" class="hover:text-red-600 font-semibold">Login</router-link>
+        </div>
+
         <!-- Right: Hamburger Icon -->
         <div class="md:hidden flex z-10">
           <!-- Hamburger Button -->
@@ -86,6 +90,12 @@
         to="/contact"
         class="block text-gray-700 font-medium hover:text-red-600"
         >Contact Us</router-link
+      >
+      <router-link
+        @click="isMobileMenuOpen = false"
+        to="/login"
+        class="block text-gray-700 font-medium hover:text-red-600"
+        >Login</router-link
       >
     </div>
   </nav>
